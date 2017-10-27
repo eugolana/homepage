@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ page.long | default: site.ang | default: "en"}}">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="{{site.baseurl}}/assets/css/scenic.css">
+
+		<!-- Load the Paper.js library -->
+		<script type="text/javascript" src="{{ site.baseurl }}/assets/js/perlin.js"></script>
+		<script type="text/javascript" src="{{ site.baseurl }}/assets/js/paper-full.js"></script>
+		<script type="text/paperscript" src="{{ site.baseurl }}/assets/js/app.js" canvas="myCanvas"></script>
+		<script type="text/javascript">
+		function toggleAbout() {
+			if (document.getElementById("aboutDiv").style.display == "block") {
+				document.getElementById("aboutDiv").style.display = "none";
+			} else {
+				document.getElementById("aboutDiv").style.display = "block"
+			}
+		}
+
+		window.onload = function() {
+			// I like this bug and this hack so it's staying.
+			toggleAbout();toggleAbout();
+		}
+		</script>
+	</head>
+	<body>
+			<canvas id="myCanvas" resize></canvas>
+      {% include nav.html %}
+		<div id="aboutDiv">
+			<div id="minimise" onclick="toggleAbout()">
+				<p>x</p>
+			</div>
+      {% include noscript.html %}
+      {{ content }}
+		</div>
+		<div id="githubLink"> <a href="https://github.com/eugolana/scenic">source code</a></div>
+	</body>
+</html>
