@@ -3,12 +3,13 @@ html, body {
 	border: 0px;
 	padding: 0px;
 	height: 100%;
-	overflow: hidden;
+	overflow: disabled;
 	color: #222222;
 }
 
 
 #myCanvas {
+		top: 0px;
 	  height: 100%;
 	  width: 100%;
     margin: 0px;
@@ -17,9 +18,35 @@ html, body {
     position: fixed;
 }
 
-#aboutDiv, #menu, #githubLink {
-	background-color: rgba(192,192,192,0.8);
-	border: 1px solid #222222;
+#galleryBackgroundCanvas {
+		top: 0px;
+	  height: 100%;
+	  width: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    position: fixed;
+}
+
+#content {
+	/*background-color: rgba(192,192,192,0.0);*/
+	top: 5px;
+	margin-left: auto ;
+	margin-right: auto ;
+	padding: 5px;
+	min-width: 320px;
+	width: 50%;
+	height: 100%;
+	overflow: auto;
+	display: block;
+	position: relative;
+	z-index: 1000;
+	pointer-events: all;
+}
+
+#aboutDiv, #menu, #githubLink, #header {
+	background-color: rgba(16,16,16,0.2);
+	/*border: 1px solid #222222;*/
 	border-radius: 2px;
 	margin: 5px;
 	padding-left: 15px;
@@ -32,6 +59,8 @@ html, body {
 	z-index: 1000;
 	pointer-events: none;
 }
+
+
 
 #menu {
 	top: 5px;
@@ -119,3 +148,59 @@ html, body {
 #githubLink a:hover {
 	color: #DDDDDD;
 }
+
+
+.imageFull {
+	max-width: 100%;
+	max-height: 90%;
+	display: block;
+	margin-left: auto;
+	margin-right:auto;
+	padding: 0;
+	pointer-events: all;
+	border: 1px solid #444444;
+	border-radius: 2px;
+}
+
+#header {
+	top: 5px;
+	width: 50%;
+	/*display: inline;
+	position: absolute;*/
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+}
+
+
+#header h1 {
+  font-size: 120%;
+	display: block;
+	margin: 0;
+	text-align: center;
+}
+
+#galleryPanel {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	background: 'black';
+}
+
+.pictureItem {
+	display: inline;
+	float: left;
+	width: 25%;
+	padding-bottom: 5px;
+}
+
+.pictureItem img{
+	width: 100%;
+	max-height: calc(width);
+	}
+
+	.pictureItem .caption {
+		display: none;
+		height: 0px;
+	}

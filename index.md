@@ -2,8 +2,12 @@
 # You don't need to edit this file, it's empty on purpose.
 # Edit theme's home layout instead if you wanna make some changes
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+title: eugolana
 layout: scenic
 ---
-<p>Hey there!</p>
-<p>My name is Sam Sharp and I'm a <em>digital creative</em>.</p>
-<p>Check out my blog, artwork, previous projects, or just chill here among the flowers and the bees</p>
+
+Welcome to **eugolana**, a calm and pleasant clearing in the jungle of the iterwebs.
+
+My name is Sam Sharp. I'm a web developer and code artist, hailing from the Yorkshire coast but curently based in Glasgow.
+
+{{ collections.gallery }}
