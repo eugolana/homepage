@@ -6,21 +6,36 @@
 		<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/scenic.css">
 
 		<!-- Load the Paper.js library -->
-		<!-- <script type="text/javascript" src="{{ site.baseurl }}/assets/js/paper-full.js"></script> -->
-		<!-- <script type="text/javascript" src="{{ site.baseurl }}/assets/js/gallery.js"></script> -->
-		<!-- <script type="text/paperscript" src="{{ site.baseurl }}/assets/js/galleryBackground.js" canvas="galleryBackgroundCanvas"></script> -->
+		<script type="text/javascript" src="{{ site.baseurl }}/assets/js/paper-full.js"></script>
+		<script type="text/javascript" src="{{ site.baseurl }}/assets/js/gallery.js"></script>
+		<script type="text/paperscript" src="{{ site.baseurl }}/assets/js/galleryList.js" canvas="galleryBackgroundCanvas"></script>
+		<script type="text/javascript">
+		window.onload = function() {
+			var ims = document.getElementsByClassName("image");
+			for (var i = 0; i < ims.length; i++) {
+				ims[i].setAttribute('height', ims[i].getAttribute('width'))
+				console.log("doing image")
+				setColor(ims[i], 3, 25);
+			}
 
+		}
+		function toFront(event) {
+			document.getElementById("galleryBackgroundCanvas").style['z-index'] = 2;
+		}
+		function toBack() {
+			document.getElementById("galleryBackgroundCanvas").style['z-index'] = -1;
+		}
+		</script>
 	</head>
 	<body >
-		<!-- <canvas id="galleryBackgroundCanvas" resize></canvas> -->
+		<canvas id="galleryBackgroundCanvas"  resize></canvas>
     {% include nav.html %}
     <div id="galleryPanel">
-      <p> div here</p>
         <ul>
         {%- for picture in site.gallery -%}
           <li class="pictureItem">
 						<a href="{{ picture.url }}">
-							<img src="{{ site.baseurl }}/assets/images/{{ picture.image }}"/>
+							<img class="image" onMouseEnter="editBgrnd(event); toFront()" onMouseLeave="toBack();" src="{{ site.baseurl }}/assets/images/{{ picture.image }}"/>
 							 <p class="caption">{{ picture.title }}</p>
 						 </a>
 					 </li>
