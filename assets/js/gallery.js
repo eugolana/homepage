@@ -1,5 +1,5 @@
-var imgCanvas;
 var bgrnd = [0, 0, 0];
+var imgCanvas;
 var image;
 
 
