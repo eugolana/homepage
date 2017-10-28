@@ -59,7 +59,7 @@ function onFrame() {
   new_color = new Color(new_color);
   hue = new_color.convert('hsb').hue;
   color = backRect.fillColor.convert('hsb')
-  new_hue = (color.hue + (0.005 * hue)) / 1.005;
+  new_hue = (color.hue + (0.05 * hue)) / 1.1;
   color.hue = new_hue;
   color.saturation = 0.4;
   color.brightness = 0.7;

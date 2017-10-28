@@ -15,7 +15,7 @@ window.onload = function() {
 
 function findPosX(obj)
   {
-    var curleft = 0;
+    var curleft = window.screenX - pageXOffset;;
     if(obj.offsetParent)
         while(1)
         {
@@ -31,7 +31,7 @@ function findPosX(obj)
 
   function findPosY(obj)
   {
-    var curtop = 0;
+    var curtop = window.screenY - pageYOffset;
     if(obj.offsetParent)
         while(1)
         {
@@ -49,7 +49,6 @@ function findPosX(obj)
 function getColor(event) {
   x = event.screenX - findPosX(image)
   y = event.screenY - findPosY(image)
-  console.log("mouse location: " + x + "," + y)
   ctx = imgCanvas.getContext('2d');
   data = ctx.getImageData(x, y, 1, 1);
   bgrnd = data.data;
