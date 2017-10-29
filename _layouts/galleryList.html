@@ -34,7 +34,7 @@
         <ul>
         {%- for picture in site.gallery -%}
           <li class="pictureItem">
-						<a href="{{ picture.url }}">
+						<a href="/{{ site.baseurl }}{{ picture.url }}">
 							<img class="image" onMouseEnter="editBgrnd(event); toFront()" onMouseLeave="toBack();" src="/{{ site.baseurl }}/assets/images/{{ picture.image }}"/>
 							 <p class="caption">{{ picture.title }}</p>
 						 </a>
