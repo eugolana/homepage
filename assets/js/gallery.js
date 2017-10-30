@@ -1,3 +1,5 @@
+// This needs to be refactored and turned into a sensible library
+
 var bgrnd = [0, 0, 0];
 var imgCanvas;
 var image;
@@ -37,6 +39,7 @@ function findPosX(obj)
   }
 
   function findPosY(obj)
+  // This is still broken on firefox :()
   {
     var curtop = window.screenY - pageYOffset;
     if(obj.offsetParent)
@@ -63,7 +66,7 @@ function getColor(event) {
 
 function colorGrab(element, number_of_colors, samples) {
   number_of_colors = number_of_colors | 3;
-  samples = samples | 100;
+  samples = samples || 100;
   canvas = document.createElement('canvas')
   canvas.width = element.width;
   canvas.height = element.height;
@@ -75,6 +78,7 @@ function colorGrab(element, number_of_colors, samples) {
     y = Math.floor(Math.random() * canvas.height);
     colors.push(ctx.getImageData(x, y, 1,1).data.slice(0,3));
   }
+  console.log("colors length: " + colors.length)
   clusters = cluster(colors, number_of_colors);
   return clusters
 }
@@ -82,12 +86,11 @@ function colorGrab(element, number_of_colors, samples) {
 function editBgrnd(event) {
   color1 = event.target.getAttribute('data-color1');
   color1 = parseColor(color1)
-  console.log(color1)
   bgrnd = color1;
 }
 
 function cluster(points, number_of_clusters, max_iterations){
-  max_iterations = max_iterations | 10;
+  max_iterations = max_iterations || 10;
   // setup random cluster points
   var _clusters = []
   for (var i = 0; i < number_of_clusters; i++) {
@@ -128,7 +131,6 @@ function cluster(points, number_of_clusters, max_iterations){
     // (fingers crossed)
     _clusters = []
     clusters = sort_clusters(groups, clusters)
-    console.log("post sort clusters: " +  clusters)
     for (var i = 0; i < number_of_clusters; i++) {
       g = groups[String(clusters[i])];
       if (g.length > 0) {
@@ -200,7 +202,6 @@ function parseColor(colorString) {
 }
 
 function sort_clusters(groups, keys){
-  console.log(groups)
   clusters = []
   keys = keys.slice()
   while (keys.length > 1) {
