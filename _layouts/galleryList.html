@@ -14,8 +14,8 @@
 			var ims = document.getElementsByClassName("image");
 			for (var i = 0; i < ims.length; i++) {
 				ims[i].setAttribute('height', ims[i].getAttribute('width'))
-				console.log("doing image")
 				setColor(ims[i], 3, 25);
+				ims[i].height = ims[i].width;
 			}
 
 		}

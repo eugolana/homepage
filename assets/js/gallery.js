@@ -78,7 +78,6 @@ function colorGrab(element, number_of_colors, samples) {
     y = Math.floor(Math.random() * canvas.height);
     colors.push(ctx.getImageData(x, y, 1,1).data.slice(0,3));
   }
-  console.log("colors length: " + colors.length)
   clusters = cluster(colors, number_of_colors);
   return clusters
 }

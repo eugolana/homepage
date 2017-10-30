@@ -3,6 +3,11 @@ myCanvas = document.getElementById("galleryBackgroundCanvas");
 width = myCanvas.width;
 height = myCanvas.height;
 
+var rect = new Rectangle(new Point(0,0), new Size(width, height));
+backRect = new Path.Rectangle(rect);
+backRect.fillColor = [0,0,0]
+
+
 arrowHover = function(event) {
   this.opacity = 0.8;
   document.body.style.cursor = 'pointer';

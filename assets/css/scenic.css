@@ -193,7 +193,7 @@ html, body {
 
 .pictureItem {
 	position: relative;
-	display: inline;
+	display: inline-block;
 	float: left;
 	width: 25%;
 	padding-bottom: -15px;
