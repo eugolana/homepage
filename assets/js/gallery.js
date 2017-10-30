@@ -16,8 +16,8 @@ window.onload = function() {
 function setColor(element, clusters, samples) {
   colors = colorGrab(element, clusters, samples);
   element.setAttribute('data-color1', cleanColor(colors[0]))
-  element.setAttribute('data-color1', cleanColor(colors[1]))
-  element.setAttribute('data-color2', cleanColor(colors[2]))
+  element.setAttribute('data-color2', cleanColor(colors[1]))
+  element.setAttribute('data-color3', cleanColor(colors[2]))
 }
 
 function findPosX(obj)
@@ -128,7 +128,7 @@ function cluster(points, number_of_clusters, max_iterations){
     // (fingers crossed)
     _clusters = []
     clusters = sort_clusters(groups, clusters)
-    console.log(clusters)
+    console.log("post sort clusters: " +  clusters)
     for (var i = 0; i < number_of_clusters; i++) {
       g = groups[String(clusters[i])];
       if (g.length > 0) {
@@ -200,18 +200,21 @@ function parseColor(colorString) {
 }
 
 function sort_clusters(groups, keys){
+  console.log(groups)
   clusters = []
   keys = keys.slice()
   while (keys.length > 1) {
-    top = ''
+    t = 0
     count = 0;
     for (var i = 0; i < keys.length; i++) {
-      if (groups[String(keys[i])] > count) {
-        count = groups[String(keys[i])]
-        top = keys[i]
+      if (groups[String(keys[i])].length > count) {
+        count = groups[String(keys[i])].length
+        t = i
       }
     }
-    clusters.push(keys.pop(top));
+    clusters.push(keys[t]);
+    keys.splice(t,1)
+
   }
   clusters.push(keys[0])
   return clusters
