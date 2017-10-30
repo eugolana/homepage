@@ -16,8 +16,8 @@
 title: eugolana
 email: eugolana2@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-baseurl: "/homepage" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://eugolana.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username: eugolana
 
