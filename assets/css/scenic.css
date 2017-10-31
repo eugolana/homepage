@@ -200,11 +200,12 @@ html, body {
 	opacity: 1;
 }
 
-#description a {
+#description a, #aboutDiv a {
 	color: black;
+	pointer-events: all;
 }
 
-#description a:hover {
+#description a:hover, #aboutDiv a:hover {
 	color: #DDDDDD;
 }
 
