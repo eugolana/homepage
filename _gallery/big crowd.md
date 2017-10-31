@@ -1,9 +1,8 @@
-
 ---
 layout: gallery
 title: big crowd
-image: big crowd
-thumb: big crowd_thumb.jpg
+image: big crowd.jpeg
+thumb: thumbs/big crowd_thumb.jpg
 description:
 ---
     

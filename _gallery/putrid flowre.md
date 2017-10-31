@@ -1,9 +1,8 @@
-
 ---
 layout: gallery
 title: putrid flowre
-image: putrid flowre
-thumb: putrid flowre_thumb.jpg
+image: putrid flowre.jpeg
+thumb: thumbs/putrid flowre_thumb.jpg
 description:
 ---
     
