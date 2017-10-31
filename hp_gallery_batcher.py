@@ -33,15 +33,14 @@ def make_md(fn, o, override = False):
     if not override and o.split('/')[-1] in os.listdir("/".join(o.split('/')[:-1])):
         print "%s already exists" % o
         return
-    text = """
----
+    text = """---
 layout: gallery
 title: %s
 image: %s
-thumb: %s
+thumb: thumbs/%s
 description:
 ---
-    """ %(fn.replace('_', ' '), fn, fn.split('.')[0] + '_thumb.jpg')
+    """ %(fn.split('.')[0].replace('_', ' '), fn, fn.split('.')[0] + '_thumb.jpg')
     f = open(o, 'w')
     f.write(text)
     f.close()
@@ -62,4 +61,4 @@ if __name__ == "__main__":
             new_fn = f.split('.')[0] + '_thumb' + '.jpg'
             resizeImageSquare(source_path + f, thumbnail_size, dest_path + new_fn)
             if md_bool:
-                make_md(fn, "%s%s.md" % (md_dir,  fn))
+                make_md(f, "%s%s.md" % (md_dir,  fn))
