@@ -47,7 +47,7 @@ html, body {
 	pointer-events: all;
 }
 
-#aboutDiv, #menu, #githubLink, #header {
+#aboutDiv, #menu, #githubLink, #header, #description {
 	background-color: rgba(16,16,16,0.2);
 	/*border: 1px solid #222222;*/
 	border-radius: 2px;
@@ -114,20 +114,26 @@ html, body {
 	color: #DDDDDD;
 }
 
-#minimise {
+#minimise{
+	font-size: 80%;
 	display: block;
 	float: right;
 	margin: 0px 5px;
 	pointer-events: all;
 	cursor: pointer;
+	text-decoration: underline;
 }
 
-#minimise:hover {
+#minimise:hover{
 	color: #DDDDDD;
 }
 
-#minimise p {
+#minimise p{
 	margin: 0px;
+}
+
+#minimise:hover p {
+	color: #DDDDDD
 }
 
 #githubLink {
@@ -182,8 +188,35 @@ html, body {
 	margin: 0;
 	text-align: center;
 }
+#description {
+	pointer-events: all;
+	max-width: 66%;
+	height: 45px;
+	z-index: 5;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+	overflow: hidden;
+	opacity: 1;
+}
+
+#description a {
+	color: black;
+}
+
+#description a:hover {
+	color: #DDDDDD;
+}
+
+
+#description p {
+	width: auto;
+	color: black;
+	margin: 5px;
+}
 
 #galleryPanel {
+	margin-top: 20px;
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
@@ -191,12 +224,19 @@ html, body {
 	/*background: 'black';*/
 }
 
+#galleryPanel ul {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+}
+
 .pictureItem {
 	position: relative;
 	display: inline-block;
 	float: left;
 	width: 25%;
-	padding-bottom: -15px;
+	/*padding-bottom: -15px;*/
 }
 
 .pictureItem:hover {

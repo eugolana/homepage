@@ -10,6 +10,8 @@
 		<script type="text/javascript" src="{{ site.baseurl }}/assets/js/gallery.js"></script>
 		<script type="text/paperscript" src="{{ site.baseurl }}/assets/js/galleryList.js" canvas="galleryBackgroundCanvas"></script>
 		<script type="text/javascript">
+		var showDescription = false;
+
 		window.onload = function() {
 			var ims = document.getElementsByClassName("image");
 			for (var i = 0; i < ims.length; i++) {
@@ -19,6 +21,22 @@
 			}
 
 		}
+
+		function toggleDescription(){
+			console.log('click')
+			if (showDescription){
+				showDescription = false;
+				document.getElementById("description").style.height = "45px"
+				document.getElementById("minimise").children[0].innerText = "show more"
+			} else {
+				showDescription = true;
+				document.getElementById("description").style.height = "auto";
+				document.getElementById("minimise").children[0].innerText = "show less"
+			}
+
+		}
+
+
 		function toFront(event) {
 			document.getElementById("galleryBackgroundCanvas").style['z-index'] = 2;
 		}
@@ -31,6 +49,12 @@
 		<canvas id="galleryBackgroundCanvas"  resize></canvas>
     {% include nav.html %}
     <div id="galleryPanel">
+			<div id="description">
+				<div id="minimise" onclick="toggleDescription()">
+					<p>show more</p>
+				</div>
+				{{ content  }}
+			</div>
         <ul>
         {%- for picture in site.gallery -%}
           <li class="pictureItem">
