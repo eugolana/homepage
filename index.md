@@ -4,7 +4,9 @@ layout: scenic
 ---
 
 Welcome to **eugolana**, a calm and pleasant clearing in the jungle of the
-interwebs.
+interwebs. 
+
+Click to spawn a flower.
 
 My name is Sam Sharp. I'm a web developer and code artist currently based in
 Glasgow.
@@ -14,4 +16,4 @@ Check out my [gallery](gallery/) of generative artwork, my
 my [past projects](#) (coming soon) or just hang
 out here with the bees.
 
-Click to spawn a flower.
+Contact me on eugolana2@gmail.com. I will send a CV on request.
