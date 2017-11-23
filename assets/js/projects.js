@@ -9,8 +9,8 @@ backRect.fillColor = "#111112";
 
 // cloud vars
 var blocksize = 32;
-var threshold = 0.57;
-var cloudFrames = 2;
+var threshold = 0.64;
+var cloudFrames = 1;
 // perlin setup
 var seed = Math.random();
 var pn = new Perlin(seed);
@@ -54,6 +54,40 @@ Clouds.prototype.run = function(a){
 
 var clouds = new Clouds(width, height, blocksize, threshold);
 clouds.initialize();
+
+var Star = function(pos, color, size) {
+	this.pos = pos;
+	this.star = new Group();
+  h_rect = new Rectangle(pos - new Point(size  , 0), new Size(size * 2, size * 0.25));
+  v_rect = new Rectangle(pos- new Point(0, size  ), new Size(size * 0.25,size * 2))
+  h_el = new Path.Ellipse(h_rect)	
+  v_el = new Path.Ellipse(v_rect)
+  h_el.opacity = 0.7;
+  v_el.opacity = 0.7
+  c = new Path.Circle(pos, size)
+  c2 = new Path.Circle(pos, size * 2)
+  c.opacity = 0.1
+  c2.opacity = 0.05
+  this.star.addChild(h_el)
+  this.star.addChild(v_el)
+  this.star.addChild(c)
+  this.star.addChild(c2)
+  this.star.fillColor = color;
+}
+
+Star.prototype.draw = function() {
+	if (this.star.visible && Math.random() > 0.95) {
+		this.star.visible = false;
+	}
+	if (!this.star.visible && Math.random() > 0.75) {
+		this.star.visible = true;
+	}
+}
+
+var stars = []
+for (var i = 0; i < 100; i++) {
+	stars.push(new Star(new Point(Math.random() * width, Math.random() * height), '#FFFFFF', 1 + Math.random() * 2))
+}
 
 
 var Flyer = function(pos, color) {
@@ -160,8 +194,12 @@ onMouseMove = function(event) {
   // console.log(mousePoint)
 }
 
- n = 0
+n = 0
+
 function onFrame() {
+  for (var i = 0; i < stars.length; i++) {
+  	stars[i].draw();
+  }
 	if (n% cloudFrames == 0){
     a = get_perlin(width, height, blocksize, pn, n/10);
     clouds.run(a);
