@@ -29,8 +29,10 @@ plugins:
 
   # My stuff
 collections:
-   gallery:
-     output: true
+  gallery:
+    output: true
+  projects:
+    output: true
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

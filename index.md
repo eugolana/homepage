@@ -16,5 +16,5 @@ Glasgow. Contact me on eugolana2@gmail.com. I will send a CV on request.
 
 Check out my [gallery](gallery/) of generative artwork, my
 [blog](http://eugolana.github.io/blog) (doesn't actually exist yet.. sorry),
-my [past projects](#) (coming soon) or just hang
+my [past projects](projects/) (coming soon) or just hang
 out here with the bees.
