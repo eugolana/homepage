@@ -4,12 +4,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eugolana projects</title>
 		<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/scenic.css">
-
+		<script type="text/javascript" src="{{ site.baseurl }}/assets/js/perlin.js"></script>
 		<!-- Load the Paper.js library -->
 		<script type="text/javascript" src="{{ site.baseurl }}/assets/js/paper-full.js"></script>
+		<script type="text/paperscript" src="{{ site.baseurl }}/assets/js/projects.js" canvas="projectsBackgroundCanvas"></script>
 	</head>
 	<body >
-		<canvas id="galleryBackgroundCanvas"  resize></canvas>
+		<canvas id="projectsBackgroundCanvas"  resize></canvas>
     {% include nav.html %}
     <div id="projectPanel">
     	<div id="content">
@@ -21,8 +22,7 @@
           <li class="projectItem">
 			<h3>{{ project.title }}</h3>          	
 			<a href="{{ project.externalURL }}">
-				<img class="image" src="{{ site.baseurl }}/assets/images/{{ project.image }}"/>
-				<p>{{ project.title }}</p>
+				<img class="projectImage" src="{{ site.baseurl }}/assets/images/{{ project.image }}"/>
 			</a>
 			<p> {{ project.description }}</p>
 		 </li>

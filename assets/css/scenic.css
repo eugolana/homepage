@@ -18,7 +18,7 @@ html, body {
     position: fixed;
 }
 
-#galleryBackgroundCanvas {
+#galleryBackgroundCanvas, #projectsBackgroundCanvas {
 		top: 0px;
 	  height: 100%;
 	  width: 100%;
@@ -262,3 +262,41 @@ html, body {
 		display: none;
 		height: 0px;
 	}
+
+#projectPanel {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+#projectPanel h3 {
+	text-align: center;
+}
+
+
+.projectItem {
+	display: inline-block;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 15px;
+	background-color: rgba(255,255,255,0.4);
+	margin-top: 20px;
+	border-radius: 6px;
+	transition: background-color 2s;
+}
+
+.projectItem:hover {
+	background-color: rgba(168,255, 168, 0.7);
+}
+
+
+.projectImage {
+	display: block;
+	width: 80%;
+	max-height: 300px;
+	object-fit: none;
+	margin-left: auto;
+	margin-right: auto;
+}
