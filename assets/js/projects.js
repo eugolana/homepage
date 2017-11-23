@@ -4,7 +4,7 @@ height = myCanvas.height;
 
 var rect = new Rectangle(new Point(0,0), new Size(width, height));
 backRect = new Path.Rectangle(rect);
-backRect.fillColor = "#CCCCEE";
+backRect.fillColor = "#111112";
 
 
 // cloud vars
@@ -60,24 +60,31 @@ var Flyer = function(pos, color) {
   this.pos = pos;
   this.color = color;
   this.bug = new Group();
-  rect = new Rectangle(pos, new Size(20, 8));
+  rect = new Rectangle(pos, new Size(10, 4));
   circle = new Path.Ellipse(rect)
   circle.fillColor = color;
-  circle.strokeColor = '#222222'
-  circle.strokeWidth = 1;
-  stripes = new Group();
-  stripes.addChild(new Path.Rectangle(new Rectangle(pos + new Point(4, 0), new Size(4, 8))))
-  stripes.addChild(new Path.Rectangle(new Rectangle(pos + new Point(12, 0), new Size(4, 8))))
+  // circle.strokeColor = '#222222'
+  // circle.strokeWidth = 1;
+  glower = new Group();
+  glower.addChild(new Path.Circle(pos, 2))
+  glower.addChild(new Path.Circle(pos, 4))
+  glower.addChild(new Path.Circle(pos, 8))
+  glower.addChild(new Path.Circle(pos, 16))
+  // glower.addChild(new Path.Circle(pos + new Point(10, 0), 12))
+  glower.fillColor = '#FFCC22'
+  glower.children[0].opacity = 1;
+  glower.children[1].opacity = 0.4
+  glower.children[2].opacity = 0.1;
+  glower.children[3].opacity = 0.05;
   wings = new Group();
-  wings.addChild(new Path.Circle(pos + new Point(10,-3), 4));
-  wings.addChild(new Path.Circle(pos + new Point(10,11), 4));
+  wings.addChild(new Path.Circle(pos + new Point(5,-2), 4));
+  wings.addChild(new Path.Circle(pos + new Point(5,6), 4));
   wings.fillColor = 'white'
   wings.strokeColor = '#222222'
   wings.opacity = 0.3;
-  stripes.fillColor = 'black'
   this.bug.addChild(circle)
-  this.bug.addChild(stripes)
   this.bug.addChild(wings)
+  this.bug.addChild(glower)
   this.wings = wings
   this.movement = new Point(1,0)
 }
@@ -140,7 +147,7 @@ Flyer.prototype.flock = function(flyers,  mouse) {
 
 flyers = []
 for (var i = 0; i < 6; i++) {
-  flyers.push(new Flyer(new Point(Math.random() * width, height/2 + Math.random() * height * 0.5), {hue: 60, saturation: 1, brightness: 0.7}))
+  flyers.push(new Flyer(new Point(Math.random() * width, height/2 + Math.random() * height * 0.5), {hue: 60, saturation: 1, brightness: 0.0}))
 
 }
 
