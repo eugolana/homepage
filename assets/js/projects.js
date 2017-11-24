@@ -91,6 +91,7 @@ for (var i = 0; i < 100; i++) {
 
 
 var Flyer = function(pos, color) {
+	this.speedMult = 0.7 + Math.random() * 0.6;
   this.pos = pos;
   this.color = color;
   this.bug = new Group();
@@ -127,8 +128,8 @@ var Flyer = function(pos, color) {
 
 Flyer.prototype.move = function(target, amount) {
   target_traj = (target - this.pos).normalize(1);
-  random_traj = new Point({length: 0.3, angle: Math.random() * 360})
-  new_traj = (target_traj + random_traj + this.movement * 4).normalize(amount);
+  random_traj = new Point({length: 0.8, angle: Math.random() * 360})
+  new_traj = (target_traj + random_traj + this.movement * 2).normalize(amount * this.speedMult);
   this.bug.rotate(new_traj.angle - this.movement.angle)
   this.pos += new_traj
   this.bug.translate(new_traj)
@@ -164,11 +165,11 @@ Flyer.prototype.flock = function(flyers,  mouse) {
   for (var i = 0; i < flyers.length; i++) {
     v = flyers[i].pos - this.pos;
     // if (Math.random() > 0.99) { console.log('v: ');console.log(v)}
-    if ( v.length >= 20){
+    if ( v.length >= 40){
     	forces += new Point({angle: v.angle, length: 2})
     } else {
-	    if (20 > v.length > 0) {
-	    	forces += new Point({angle: v.angle - 180, length: 4})
+	    if (40 > v.length > 0) {
+	    	forces += new Point({angle: v.angle - 180, length: 6})
 	    }
     }
   }
@@ -180,13 +181,11 @@ Flyer.prototype.flock = function(flyers,  mouse) {
 }
 
 flyers = []
-for (var i = 0; i < 6; i++) {
+for (var i = 0; i < 12; i++) {
   flyers.push(new Flyer(new Point(Math.random() * width, height/2 + Math.random() * height * 0.5), {hue: 60, saturation: 1, brightness: 0.0}))
 
 }
 
-console.log("initial pos")
-console.log(flyers[0].pos)
 
 var mousePoint = new Point(width/2, 0)
 onMouseMove = function(event) {
@@ -208,7 +207,7 @@ function onFrame() {
     flyer = flyers[i];
     // should eit to prevent it following not-yet born flowers
     attraction = flyer.flock(flyers, mouse= mousePoint);
-    flyer.move(flyer.pos + attraction  , 3)
+    flyer.move(flyer.pos + attraction  , 5)
     flyer.bug.bringToFront();
 	}
 	n += 1;
